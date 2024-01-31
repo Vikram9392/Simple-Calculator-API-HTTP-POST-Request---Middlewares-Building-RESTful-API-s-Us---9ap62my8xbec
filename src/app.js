@@ -9,7 +9,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Write POST endpoint to get the sum of two number
+app.post((req,res)=>{
+  let num1=req.body.num1;
+  let num2=req.body.num2;
+  if(num1<-1000000|| num2<-1000000){
+    return res.json({
+      status:"error",
+      message:"Underflow"
+    })
+  }
+    if(num1>1000000|| num2>1000000){
+       return res.json({
+        status:"error",
+        message:"Overflow"
+      })
 
+  }
+ return res.json({
+    "result":req.body.num1+req.body.num2
+  })
+})
 
 //Write POST endpoint to get the differance of two number
 
