@@ -50,7 +50,7 @@ app.post('/divide',(req,res)=>{
   let num1=parseInt(req.body.num1);
   let num2=parseInt(req.body.num2);
   if(num2===0){
-    return res.status(400).send({status:'error',message:'Cannot divide by zero'})
+    return res.status(400).send({error:'Cannot divide by zero'})
   }
   res.send({result:num1/num2})
 })
